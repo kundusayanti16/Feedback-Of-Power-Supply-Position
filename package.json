@@ -1,0 +1,15 @@
+{
+  "name": "power-supply-feedback",
+  "version": "1.0.0",
+  "description": "Power supply feedback simulation with MongoDB history",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ws": "^8.18.0",
+    "mongoose": "^8.3.1"
+  }
+}
