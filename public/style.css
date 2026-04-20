@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 50%, #e8eaf6 100%);
+  min-height: 100vh;
+  color: #2c3e50;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 3rem;
+  border-radius: 30px;
+  box-shadow: 
+    0 25px 50px rgba(0,0,0,0.15),
+    0 0 0 1px rgba(255,255,255,0.9) inset;
+  max-width: 850px;
+  width: 95%;
+  max-height: 95vh;
+  overflow-y: auto;
+}
+
+h1 {
+  text-align: center;
+  background: linear-gradient(45deg, #8e44ad, #3498db, #27ae60);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2.5rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.slider-group {
+  background: linear-gradient(135deg, #fff, #f8f9ff);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.8);
+}
+
+.slider-group label {
+  font-weight: 600;
+  color: #34495e;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.slider-group input[type="range"] {
+  width: 100%;
+  height: 12px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #e8f5e8, #fff3e6, #f0f8ff);
+  outline: none;
+  -webkit-appearance: none;
+  accent-color: #27ae60;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.slider-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #27ae60, #2ecc71);
+  cursor: pointer;
+  box-shadow: 
+    0 6px 20px rgba(39, 174, 96, 0.4),
+    0 0 0 4px rgba(255,255,255,0.9);
+  border: 2px solid rgba(255,255,255,1);
+}
+
+#startSim {
+  padding: 1.4rem 3rem;
+  background: linear-gradient(45deg, #27ae60, #2ecc71, #58d68d);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 12px 35px rgba(39, 174, 96, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#startSim:hover:not(:disabled) {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(39, 174, 96, 0.6);
+}
+
+#startSim:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.display {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+#voltageGauge {
+  display: block;
+  margin: 0 auto 1.5rem;
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.values div {
+  padding: 1.2rem 1.5rem;
+  background: linear-gradient(135deg, #fff, #f8f9ff);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  border: 1px solid rgba(255,255,255,0.8);
+}
+
+.chart-section {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, #fff, #f0f8ff);
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  border: 1px solid rgba(255,255,255,0.9);
+}
+
+#simulationChart {
+  max-height: 350px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.results-section, .history-section {
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(248,249,255,0.8));
+  padding: 2rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.85);
+  backdrop-filter: blur(15px);
+}
+
+.results-section h3, .history-section h3 {
+  margin-bottom: 1.5rem;
+  color: #34495e;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#resultDetails {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  line-height: 1.7;
+  background: rgba(255,255,255,0.7);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border-left: 5px solid #27ae60;
+}
+
+#historyList {
+  list-style: none;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+#historyList li {
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(240,248,255,0.8));
+  border-radius: 16px;
+  border-left: 6px solid linear-gradient(45deg, #8e44ad, #3498db);
+  background-clip: padding-box;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  font-size: 1.05rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+#historyList li:hover {
+  transform: translateX(5px);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.5);
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #27ae60, #3498db);
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #2ecc71, #8e44ad);
+}
+
+@media (max-width: 850px) {
+  body {
+    padding: 1rem;
+  }
+  .container {
+    padding: 2rem 1.5rem;
+    border-radius: 25px;
+  }
+  .values {
+    grid-template-columns: 1fr;
+  }
+  #simulationChart {
+    max-height: 300px;
+  }
+}
