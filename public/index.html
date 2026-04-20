@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power Supply Feedback Simulation</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🔌 Power Supply Feedback System</h1>
+    
+    <div class="controls">
+      <div class="slider-group">
+        <label>Input Voltage: <span id="inputVal">100</span>V</label>
+        <input type="range" id="inputSlider" min="0" max="300" value="100" step="1">
+      </div>
+      
+      <div class="slider-group">
+        <label>Target Voltage: <span id="targetVal">220</span>V</label>
+        <input type="range" id="targetSlider" min="0" max="300" value="220" step="1">
+      </div>
+      
+      <button id="startSim">🚀 Start Simulation</button>
+    </div>
+    
+    <div class="main-visualization">
+      <div class="display">
+        <canvas id="voltageGauge" width="350" height="220"></canvas>
+        <div class="values">
+          <div>Final Output: <span id="finalOutput">-</span>V</div>
+          <div>Steps: <span id="steps">-</span></div>
+          <div>Status: <span id="status">-</span></div>
+        </div>
+      </div>
+      
+      <div class="chart-section">
+        <h3 style="text-align: center; margin-bottom: 1rem; color: #34495e;">📈 Voltage Convergence Graph</h3>
+        <canvas id="simulationChart" height="280"></canvas>
+      </div>
+    </div>
+    
+    <div id="results" class="results-section">
+      <h3>Latest Result</h3>
+      <div id="resultDetails"></div>
+    </div>
+    
+    <div id="history" class="history-section">
+      <h3>📊 Recent Simulations</h3>
+      <ul id="historyList"></ul>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
